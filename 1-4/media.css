@@ -1,0 +1,48 @@
+@media screen and (max-width:767px) {
+  #wrapper {
+    width: 300px;
+  }
+
+  #green {
+    width: 100px;
+  }
+
+  #right {
+    width: 200px;
+  }
+
+  #right-top-left {
+    width: 125px;
+  }
+
+  #pink {
+    width: 75px;
+  }
+}
+
+@media screen and (max-width:479px) {
+  #wrapper {
+    width: 150px;
+  }
+
+  #green {
+    height: 150px;
+  }
+
+  #green,
+  #right,
+  #right-top-left,
+  #pink {
+    clear: none;
+  }
+
+  #green,
+  #yellow,
+  #blue,
+  #pink,
+  #red,
+  #right,
+  #right-top-left {
+    width: 100%;
+  }
+}
