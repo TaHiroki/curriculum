@@ -1,9 +1,12 @@
 <?php
-  $color1 = ["red"=>"赤","blue"=>"青","green"=>"緑"];
-  $color2 = ["red"=>"赤","blue"=>"青","green"=>"緑","yellow"=>"黄色"];
+  $color = ["red"=>"赤","blue"=>"青","green"=>"緑"];
 
-  var_dump($color1);
-  var_dump($color2);
+  var_dump($color);
+  echo '<Br>';
+
+  $color["yellow"] = "黄色";
+
+  var_dump($color);
 
   /*
     用語：プルリク
