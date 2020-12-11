@@ -1,0 +1,12 @@
+body {
+  padding-top: 50px;
+  background: grey;
+  color: white;
+  text-align: center;
+}
+
+#btn2 {
+  margin-top: 50px;
+  color: black;
+  background-color: #DDDDDD;
+}
