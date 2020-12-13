@@ -1,5 +1,4 @@
 <?php
-// クラスの名簿の配列
 $list = array(
     '山田' => array(
         'ID' => '001',
@@ -38,11 +37,9 @@ $list = array(
     )
 );
 
-// 取得したクラス名簿を表示するための処理
 function getName($list) {
     $i = 0;
     echo "【Aクラスの名簿】" . '<br>';
-//配列の中の名前を出す。
     foreach ($list as $key => $member) {
         if ($i < count($list)) {
             echo $key . '<br>';//[0]不要
@@ -51,8 +48,6 @@ function getName($list) {
     }
 }
 
-//関数の定義位置
-// 大阪出身の方を抽出
 function getPeople($list) {
     foreach ($list as $key => $member) {
         if (isset($member['出身']) && $member['出身'] === '大阪') {
@@ -61,10 +56,8 @@ function getPeople($list) {
     }
 }
 
-// クラスの一覧を表示
 getName($list);
 echo '<br>';
-// 大阪出身の方を表示
 getPeople($list);//変数代入もれ
 
 
