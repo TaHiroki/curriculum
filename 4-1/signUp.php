@@ -6,15 +6,16 @@
     $password = $_POST["password"];
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (name, password) VALUES (:name,:password)";
+    $sql = "INSERT INTO users (name, password) VALUES ('{$name}','{$password_hash}')";
 
     $pdo = db_connect();
     try{
       $stmt = $pdo->prepare($sql);
-      $stmt->bindParam(':name', $name);
-      $stmt->bindParam(':password', $password_hash);
+      // $stmt->bindParam(':name', $name);
+      // $stmt->bindParam(':password', $password_hash);
       $stmt->execute();
       echo "登録が完了しました";
+      
     }catch(PDOExeption $e){
       echo 'Error:'.$e->getMessage();
       die();
