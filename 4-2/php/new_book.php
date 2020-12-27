@@ -6,16 +6,18 @@
   check_user_logged_in();
 
   if(!empty($_POST)){
+    $validateComments = [];
+
     if(empty($_POST["title"])){
-      echo "タイトルを入力してください。";
+      $validateComments[] = "タイトルを入力してください。";
     }
     if(empty($_POST["date"])){
-      echo "発売日を入力してください。";
+      $validateComments[] = "発売日を入力してください。";
     }elseif(!preg_match('/\d{4}-\d{1,2}-\d{1,2}/', $_POST["date"] )){
-      echo "年-月-日 の形で入力してください。";
+      $validateComments[] = "年-月-日 の形で入力してください。";
     }
     if($_POST["stock"] == "notSelect"){
-      echo "在庫数を選択してください。";
+      $validateComments[] = "在庫数を選択してください。";
     }
 
     if(!empty($_POST["title"] && !empty($_POST["date"]) && $_POST["stock"] != "notSelect")){
@@ -50,12 +52,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>在庫管理システム:新規登録</title>
   </head>
   <body>
     <div id="main-new-book" class="container">
       <h2>本  登録</h2>
+
+      <div class="validateComments">      
+        <?php validates($validateComments); ?>
+      </div>
 
       <form action=""  method="post">
         <input type="text" name="title" placeholder="タイトル"><br><br>

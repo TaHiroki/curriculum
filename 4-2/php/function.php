@@ -6,3 +6,11 @@
       header("Location: login.php");
     }
   }
+
+  function validates($validateComments){
+    if(!empty($validateComments)){
+      foreach($validateComments as $comment){
+        echo $comment.'<br>';
+      } 
+    }
+  }

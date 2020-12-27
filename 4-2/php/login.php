@@ -1,15 +1,18 @@
 <?php
   require_once('db_connect.php');
 
+  require_once('function.php');
+
   session_start();
 
   if(!empty($_POST)){
+    $validateComments = [];
     //ヴァリデーション
     if(empty($_POST["name"])){
-      echo "名前が未入力です。";
+      $validateComments[] = "名前が未入力です。";
     }
     if(empty($_POST["password"])){
-      echo "パスワードが未入力です。";
+      $validateComments[] = "パスワードが未入力です。";
     }
 
     //名前検索
@@ -24,7 +27,7 @@
         $stmt->bindParam(":name", $name);
         $stmt->execute();
       }catch (PDOException $e) {
-        echo "名前が一致しません。";
+        $validateComments[] = "名前が一致しません。";
         die();
       }
 
@@ -36,10 +39,10 @@
         header("Location: main.php");
         exit();
       }else {
-        echo "パスワードが間違っています。";
+        $validateComments[] = "パスワードが間違っています。";
       }
     }else{
-      echo "ユーザー名かパスワードに誤りがあります。";
+      $validateComments[] = "ユーザー名かパスワードに誤りがあります。";
     }
   }
 }
@@ -54,7 +57,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>ログイン</title>
   </head>
@@ -62,15 +65,22 @@
 
     <div id="main-login" class="container">
     <div class="row">
-    <h2>ログイン</h2>
-    <button class="btn btn-success" onclick="location.href='signUp.php'">新規ユーザー登録</button>
+      <h2>ログイン</h2>
+    <button class="btn btn-info ml-5 mb-5" onclick="location.href='signUp.php'">新規ユーザー登録</button>
     </div>
+
+    <div class="row validateComments">      
+      <?php validates($validateComments); ?>
+    </div>
+
+    <div class="row"></div>
       <form action=""  method="post">
         <input type="text" name="name" placeholder="ユーザー名"><br><br>
         <input type="password" name="password" placeholder="パスワード"><br><br>
         <button type="submit" class="btn btn-primary">ログイン</button>
       </form>
     </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

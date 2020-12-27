@@ -1,12 +1,15 @@
 <?php
   require_once('db_connect.php');
 
+  require_once('function.php');
+
   if(!empty($_POST)){
+    $validateComments = [];
     if(empty($_POST["name"])){
-      echo "名前を入力してください。";
+      $validateComments[] = "名前を入力してください。";
     }
     if(empty($_POST["password"])){
-      echo "パスワードを入力してください。";
+      $validateComments[] = "パスワードを入力してください。";
     }
 
     if(!empty($_POST["name"]) && !empty($_POST["password"])){
@@ -24,7 +27,7 @@
         header("Location: login.php");
         exit();
       }catch(PDOException $e){
-        echo 'Error: ' . $e->getMessage();
+        $validateComments[] = 'Error: ' . $e->getMessage();
         die();
       }
     }
@@ -41,6 +44,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>アカウント新規登録</title>
   </head>
@@ -48,16 +52,20 @@
 
     <div id="main-signUp" class="container">
     <div class="row">
-    <h2>アカウント新規登録</h2>
+      <h2>アカウント新規登録</h2>
     </div>
+
+    <div class="row validateComments">      
+      <?php validates($validateComments); ?>
+    </div>
+
       <form action=""  method="post">
         <input type="text" name="name" placeholder="ユーザー名"><br><br>
         <input type="text" name="password" placeholder="パスワード"><br><br>
-        <div class="row">
-          <button type="submit" class="btn btn-primary ml-3">新規登録</button>
-          <button class="btn btn-success ml-3" onclick="location.href='login.php'">戻る</button>
-        </div>
-      </form>
+          <button type="submit" class="btn btn-primary">新規登録</button>
+      </form>          
+      <button class="btn btn-success mt-3" onclick="location.href='login.php'">戻る</button>
+
     </div>
 
     <!-- Optional JavaScript -->

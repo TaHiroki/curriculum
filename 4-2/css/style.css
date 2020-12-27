@@ -1,0 +1,15 @@
+#main,
+#main-login,
+#main-new-book,
+#main-signUp {
+  width: 70%;
+  margin: 50px auto;
+}
+
+table {
+  text-align: center;
+}
+
+.validateComments {
+  color: red;
+}
