@@ -1,8 +1,4 @@
 <?php
-  require_once("function.php");
-
-  check_user_logged_in();
-
   // DB名
   define('DB_DATABASE', 'kadai_4');
   // MySQLのユーザー名
