@@ -28,8 +28,8 @@
     <div id="main" class="container">
       <h2>在庫一覧画面</h2>
       <div class="row mb-4 mt-4">
-        <button type="button" class="btn btn-primary ml-4 mr-4">新規登録</button>
-        <button type="button" class="btn btn-secondary">ログアウト</button>
+        <button type="button" class="btn btn-primary ml-4 mr-4" onclick="location.href='new_book.php'">新規登録</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='logout.php'">ログアウト</button>
       </div>
       <div class="row">
         <table class="table table-striped">
@@ -47,7 +47,7 @@
               <th><?php echo $row['title'] ?></th>
               <th><?php echo $row['date'] ?></th>
               <th><?php echo $row['stock'] ?></th>
-              <th><button type="button" class="btn btn-danger">削除</button></th>
+              <th><button type="button" class="btn btn-danger" onclick="location.href='delete_book.php?id=<?php echo $row['id'] ?>'">削除</button></th>
             </tr>
           <?php endwhile ?>
           </tbody>
