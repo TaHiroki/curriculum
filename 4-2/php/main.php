@@ -1,6 +1,10 @@
 <?php
   require_once('db_connect.php');
 
+  require_once("function.php");
+
+  check_user_logged_in();
+
   $sql = "SELECT * FROM books";
   $pdo = db_connect();
   try{
