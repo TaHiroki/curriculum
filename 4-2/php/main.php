@@ -5,7 +5,7 @@
 
   check_user_logged_in();
 
-  $sql = "SELECT * FROM books";
+  $sql = "SELECT * FROM books ORDER BY date DESC";
   $pdo = db_connect();
   try{
     $stmt = $pdo->query($sql);

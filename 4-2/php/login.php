@@ -36,7 +36,7 @@
       if(password_verify($password, $row["password"])){
         $_SESSION["user_id"] = $row["id"];
         $_SESSION["user_name"] = $row["name"];
-        header("Location: main.php");
+        header("Location: main.php");//headerではファイルのDLやリダイレクト、JSONの出力などできる
         exit();
       }else {
         $validateComments[] = "パスワードが間違っています。";
