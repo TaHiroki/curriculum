@@ -9,6 +9,8 @@ class Post extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['body', 'user_id'];
+
     public function user(){
         return $this->belongsTo('App\User');
     }
