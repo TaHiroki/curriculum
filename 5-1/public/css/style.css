@@ -1,0 +1,30 @@
+header {
+    height: 50px;
+    background-color: #88FFFF;
+}
+
+#user_name,
+#logo {
+    text-align: center;
+}
+
+#user_name p {
+    margin-top: 10px;
+}
+
+#main {
+    width: 60%;
+    margin: 20px auto;
+    background-attachment: #EEEEEE;
+}
+
+#form {
+    margin: 50px 0;
+    padding: 10px 0;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+}
+
+#contribution {
+    width: 90%;
+}
