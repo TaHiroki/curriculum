@@ -66,7 +66,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('messages.Register') }}
                                 </button>
-                                <button type="submit" class="btn btn-success" onclick="location.href='/home'">
+                                <button type="button" class="btn btn-success" onclick="location.href='login'">
                                     戻る
                                 </button>
                             </div>

@@ -29,3 +29,7 @@ header {
 #contribution {
     width: 90%;
 }
+
+#error_post p {
+    color: red;
+}

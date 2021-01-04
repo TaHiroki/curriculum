@@ -13,7 +13,7 @@
 
 Route::get('index', 'PostController@index')->middleware('auth');
 Route::post('index', 'PostController@post')->middleware('auth');
-
+Route::get('delete', 'PostController@delete')->middleware('auth');
 Route::get('logout', 'PostController@logout');
 
 Auth::routes();

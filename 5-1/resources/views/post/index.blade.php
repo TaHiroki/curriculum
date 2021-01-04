@@ -9,6 +9,13 @@
             <div class="row d-flex justify-content-center">
                 <input id="contribution" type="text" name="body" placeholder="今どうしてる？">
             </div>
+            <div id="error_post" class="row d-flex justify-content-center">
+                @if (count($errors) > 0)
+                    @foreach($errors->all() as $e)
+                        <p>{{ $e }}</p>
+                    @endforeach
+                @endif
+            </div>
             <div class="row d-flex justify-content-end">
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                 <button id="contribution_btn" type="submit" class="btn btn-success mr-5 mt-3">投稿</button>
@@ -28,7 +35,7 @@
                 <p class="card-text">{{ $post->body }}</p>
                 <div class="row d-flex justify-content-end">
                     @if(Auth::id() == $post->user_id)
-                        <button type="button" class="card-link btn btn-danger ml-4 mr-4" onclick="location.href='main.php'">削除</button>
+                        <button type="button" class="card-link btn btn-danger ml-4 mr-4" onclick="location.href='{{ action('PostController@delete', ['id' => $post->id]) }}'">削除</button>
                     @endif
                 </div>
             </div>
