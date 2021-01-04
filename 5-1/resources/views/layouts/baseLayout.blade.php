@@ -12,7 +12,8 @@
     <title>@yield('title')</title>
   </head>
   <body>
-    @include('components.header',['user_name'=>'testuser'])
+
+    @include('components.header')
 
     <div id="main">
         @yield('contribution')

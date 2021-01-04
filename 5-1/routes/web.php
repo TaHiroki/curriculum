@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('index', 'PostController@index');
+Route::get('index', 'PostController@index')->middleware('auth');
+Route::get('logout', 'PostController@logout');
+
+Auth::routes();
+

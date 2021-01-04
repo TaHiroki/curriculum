@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class PosttableSeeder extends Seeder
+class PostTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,23 +12,32 @@ class PosttableSeeder extends Seeder
      */
     public function run()
     {
+
+        DB::table('posts')->delete();
+
         $param = [
             'user_id' => 1,
-            'body' => "テスト投稿"
+            'body' => "テスト投稿",
+            'created_at' => new DateTime(),
+            'updated_at' => new Datetime(),
         ];
 
         DB::table('posts')->insert($param);
 
         $param = [
             'user_id' => 1,
-            'body' => "お腹痛い"
+            'body' => "お腹痛い",
+            'created_at' => new DateTime(),
+            'updated_at' => new Datetime(),
         ];
 
         DB::table('posts')->insert($param);
 
         $param = [
             'user_id' => 1,
-            'body' => "ハートも痛い"
+            'body' => "ハートも痛い",
+            'created_at' => new DateTime(),
+            'updated_at' => new Datetime(),
         ];
 
         DB::table('posts')->insert($param);

@@ -8,7 +8,8 @@ header {
     text-align: center;
 }
 
-#user_name p {
+#user_name p,
+#user_name a {
     margin-top: 10px;
 }
 
